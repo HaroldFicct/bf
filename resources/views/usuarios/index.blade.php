@@ -3,7 +3,7 @@
 @section('content') 
 
 <div class="container">
-    <h2>Lista de Administradores <a href="usuarios/create"> <button type="buton" class="btn btn-success float-right">Agrega Administrador</button> </a> </h2>
+    <h2>Lista de Usuarios <a href="usuarios/create"> <button type="buton" class="btn btn-success float-right">Agrega Administrador</button> </a> </h2>
 
     <h6>
         @if($search)
