@@ -193,6 +193,22 @@
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
 
+                            @can('Administrador')
+                            <li class="nav-item">
+                                <a href="/">
+                                    <i class="nav-icon fas"> Administrador</i>
+                                </a>
+                            </li>
+                            @endcan
+
+                            @can('Lector')
+                            <li class="nav-item">
+                                <a href="/">
+                                    <i class="nav-icon fas"> Lector</i>
+                                </a>
+                            </li>
+                            @endcan
+
                             <li class="nav-item">
                                 <a href="/" class="{{ Request::path() === '/' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-home"></i>
@@ -200,14 +216,13 @@
                                 </a>
                             </li>
 
-                            @can('administrador')
+                            @can('Administrador')
                             <li class="nav-item">
                                 <a href="{{url('usuarios')}}"
                                     class="{{ Request::path() === 'usuarios' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
-                                        Admnistradores
-                                        
+                                        Usuarios
                                         <?php $users_count = DB::table('users')->count(); ?>
                                         <span class="right badge badge-danger">{{ $users_count ?? '0' }}</span>
                                     </p>
@@ -215,13 +230,14 @@
                             </li>
                             @endcan
 
-                            @can('administrador')
+                            @can('Administrador')
                             <li class="nav-item">
-                                <a href="{{url('roles')}}"
-                                    class="{{ Request::path() === 'roles' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fas fa-users"></i>
+                                <a href="{{ url('roles') }}" class="{{ Request::path() === 'roles' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fas fa-sitemap"></i>
                                     <p>
-                                        roles
+                                        Roles
+                                        <?php $roles_count = DB::table('roles')->count(); ?>
+                                        <span class="right badge badge-danger">{{ $roles_count ?? '0' }}</span>
                                     </p>
                                 </a>
                             </li>
@@ -229,9 +245,8 @@
 
 
                             <li class="nav-item">
-                                <a href="categorias"
-                                    class="{{ Request::path() === 'categorias' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fas fa-users"></i>
+                                <a href="categorias" class="{{ Request::path() === 'categorias' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fas fa-folder"></i>
                                     <p>
                                         Categorias
                                         <?php use App\Categoria; $categoriascantidad = Categoria::all()->count(); ?>
@@ -239,8 +254,9 @@
                                     </p>
                                 </a>
                             </li>
+                            
 
-                            @can('lector')
+                            @can('Lector')
                             <li class="nav-item">
                                 <a href="carreras"
                                     class="{{ Request::path() === 'carreras' ? 'nav-link active' : 'nav-link' }}">
