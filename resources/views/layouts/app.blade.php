@@ -254,6 +254,18 @@
                                     </p>
                                 </a>
                             </li>
+
+                            @can('Administrador')
+                            <li class="nav-item">
+                                <a href="books" class="{{ Request::path() === 'libros' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fas fa-folder"></i>
+                                    <p>
+                                        Libros
+                                        
+                                    </p>
+                                </a>
+                            </li>
+                            @endcan
                             
 
                             @can('Lector')
