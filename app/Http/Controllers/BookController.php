@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Categoria;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -25,7 +26,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $categorias=Categoria::all();
+        return view('libros.create',['categorias'=>$categorias]);
     }
 
     /**
