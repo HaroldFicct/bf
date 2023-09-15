@@ -258,7 +258,7 @@
                             @can('Administrador')
                             <li class="nav-item">
                                 <a href="{{ url('books') }}" class="{{ Request::path() === 'libros' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fas fa-folder"></i>
+                                    <i class="nav-icon fas fa-book"></i>
                                     <p>
                                         Libros
                                         

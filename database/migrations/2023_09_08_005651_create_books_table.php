@@ -22,10 +22,15 @@ class CreateBooksTable extends Migration
             $table->integer('cantidad'); // Cambiado a integer para representar la cantidad
             $table->string('editor');
             $table->boolean('conDisco'); // Cambiado a boolean para representar si tiene disco o no
-            $table->unsignedBigInteger('categoriaId'); // Agregada la columna para la clave foránea
+            $table->unsignedBigInteger('categoriaId')->nullable(); // Agregada la columna para la clave foránea
             $table->timestamps();
 
-            $table->foreign('categoriaId')->references('id')->on('categorias');
+          //  $table->foreign('categoriaId')->references('id')->on('categorias');
+          $table->foreign('categoriaId')
+                  ->references('id')
+                  ->on('categorias')
+                  ->onDelete('set null'); // Configurar la acción onDelete para establecer null
+       
         });
     }
 
