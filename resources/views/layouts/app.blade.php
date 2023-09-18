@@ -245,7 +245,7 @@
 
 
                             <li class="nav-item">
-                                <a href="categorias" class="{{ Request::path() === 'categorias' ? 'nav-link active' : 'nav-link' }}">
+                                <a href="{{ url('categorias') }}" class="{{ Request::path() === 'categorias' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-folder"></i>
                                     <p>
                                         Categorias
@@ -254,9 +254,21 @@
                                     </p>
                                 </a>
                             </li>
+
+                            @can('Administrador')
+                            <li class="nav-item">
+                                <a href="{{ url('books') }}" class="{{ Request::path() === 'libros' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>
+                                        Libros
+                                        
+                                    </p>
+                                </a>
+                            </li>
+                            @endcan
                             
 
-                            @can('Lector')
+                            @can('Lector')       
                             <li class="nav-item">
                                 <a href="carreras"
                                     class="{{ Request::path() === 'carreras' ? 'nav-link active' : 'nav-link' }}">

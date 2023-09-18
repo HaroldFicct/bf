@@ -20,3 +20,5 @@ Route::resource('categorias','CategoriaController');
 
 /* ruta para todos los procedimientos de controlador de carreras */
 Route::resource('carreras','CarreraController');
+
+Route::resource('books','BookController')->names('books');
